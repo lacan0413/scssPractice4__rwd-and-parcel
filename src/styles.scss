@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    width: 90%;
+    height: 10vh;
+    margin: auto;
+    align-items: center;
+
+    &__logo-container,
+    &__nav-links,
+    &__cart {
+        display: flex;
+    }
+
+    &__logo-container {
+        background: lightblue;
+        flex: 1;
+
+        .logo {
+            font-weight: 400;
+            margin: 5px;
+        }
+    }
+
+    &__nav-links {
+        background-color: rgba(255, 238, 49, 0.127);
+        flex: 2;
+
+        justify-content: space-around;
+        list-style: none;
+
+        .nav-link {
+            color: #5f5f79;
+            font-size: 18px;
+            text-decoration: none;
+
+        }
+    }
+
+    &__cart {
+        background-color: rgba(255, 42, 152, 0.314);
+        flex: 1;
+        justify-content: flex-end;
+    }
+}
+
+/////////////////////////////////////////////////////////////
+
+.main__presentation {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+
+    &__introduction {
+        // background-color: lightblue;
+        flex: 1;
+
+        &__intro-text {
+
+            h1 {
+                font-size: 44px;
+                font-weight: 500;
+                background: linear-gradient(to right, #4d4de7, rgb(185, 31, 31));
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            p {
+                margin-top: 5px;
+                font-size: 22px;
+                color: #585772;
+            }
+        }
+
+        &__cta {
+            padding: 50px 0 0 0;
+
+            .cta-select {
+                border: 2px solid #c36cbb;
+                background: transparent;
+                color: #C36CBB;
+                width: 150px;
+                height: 50px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            .cta-add {
+                background-color: #C36CBB;
+                color: #fff;
+                width: 150px;
+                height: 50px;
+                cursor: pointer;
+                font-size: 16px;
+                border: none;
+                margin: 30px 0 0 0;
+            }
+        }
+    }
+
+    &__cover {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        height: 60vh;
+
+        img {
+            height: 100%;
+            filter: drop-shadow(0px 5px 3px #000);
+            animation: drop 1.5s ease;
+        }
+    }
+
+    &__laptop-select {
+        width: 15%;
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        right: 20%;
+        bottom: 10%;
+    }
+
+    .bg-circle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        opacity: .5;
+        height: 80%;
+    }
+
+    .md-circle {
+        position: absolute;
+        top: 30%;
+        right: 30%;
+        z-index: -1;
+        height: 60%;
+        opacity: .4;
+    }
+
+    .sm-circle {
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        z-index: -1;
+    }
+}
+
+@keyframes drop {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .header {
+        &__nav-links {
+            display: none;
+        }
+    }
+
+    .main {
+        &__presentation {
+            flex-direction: column;
+
+            &__introduction {
+                margin-top: 5vh;
+                text-align: center;
+
+                &__cta {
+                    padding: 10px 0 0 0;
+                }
+
+                &__intro-text h1 {
+                    font-size: 30px;
+                }
+
+                &__intro-text p {
+                    font-size: 18px;
+                }
+            }
+
+            &__cover img {
+                height: 60vh;
+            }
+
+            &__laptop-select {
+                bottom: 7vh;
+                right: 50%;
+                width: 50%;
+                transform: translate(50%, 5%);
+            }
+
+            .sm-circle,
+            .md-circle,
+            .bg-circle {
+                opacity: .2;
+            }
+        }
+    }
+}
